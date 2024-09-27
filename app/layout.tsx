@@ -32,20 +32,20 @@ export default function RootLayout({
       >
         <Providers>{children}</Providers>
       </body>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-      <a className="flex flex-end text-blue-400">
-      Leer más...
-      </a>
-      <a  className="flex flex-end text-blue-400">
-        Web Creada por Javier Coronas - 2024
-      </a>
-      <a 
+      <div className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <a href={'/leermas'} className="flex flex-end text-blue-400">
+        Leer más...
+        </a>
+        <a  className="flex flex-end text-blue-400">
+          - Web Creada por Javier Coronas (2024) -
+        </a>
+        <a 
         href="mailto:javcor3@gmail.com?subject=Reporte de error en la web" 
         className="flex flex-end text-blue-400"
       >
         Reportar un error
       </a>
-      </footer>
+      </div>
     </html>
   );
 }
