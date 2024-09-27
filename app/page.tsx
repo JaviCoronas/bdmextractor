@@ -1,101 +1,73 @@
-import Image from "next/image";
+'use client'
+import { Link } from "@chakra-ui/next-js";
+import { Stack, Heading, Button, Flex, Container, Text, Box } from "@chakra-ui/react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from 'next/image'
+
+type CalendarEvent = {
+  week: string;
+  dateStart: string;
+  group: string;
+  category: string;
+  name: string;
+  city: string;
+  country: string;
+};
+
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const goToExtractor = () => {
+    router.push('/extractor');
+  };
+  const goToLeerMas = () => {
+    router.push('/leermas');
+  };
+
+  return (
+    <div className="">
+      <main className="">
+      <Container maxW={'5xl'}>
+        <div className="flex justify-center items-center mt-10">
+          <Image src="/assets/logo-rbg.png" alt='Logo' width="500" height="500"/>
         </div>
+      <Stack
+        textAlign={'center'}
+        align={'center'}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 20, md: 28 }}>
+        <Heading
+          fontWeight={600}
+          fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+          lineHeight={'110%'}>
+          Bienvenido a BadmintonESP{' '}
+          <Text as={'span'} color={'orange.400'}>
+            Extractor
+          </Text>
+        </Heading>
+        <Text color={'gray.500'} maxW={'3xl'}>
+        BadmintonESP Extractor es una herramienta avanzada diseñada para facilitar la obtención y descarga de datos directamente desde el calendario oficial de la Federación Española de Bádminton (FESBA). Nuestro sitio te permite extraer fácilmente información clave sobre los campeonatos, torneos y eventos, ahorrándote tiempo y esfuerzo.
+        </Text>
+        <Stack spacing={6} direction={'row'}>
+          <Button
+            rounded={'full'}
+            px={6}
+            colorScheme={'orange'}
+            bg={'orange.400'}
+            _hover={{ bg: 'orange.500' }}
+            onClick={goToExtractor}>
+            Empieza
+          </Button>
+          <Button rounded={'full'} px={6} onClick={goToLeerMas}>
+            Leer más...
+          </Button>
+        </Stack>
+      </Stack>
+    </Container>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
