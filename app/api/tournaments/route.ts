@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+
 import axios from 'axios';
 import {load } from 'cheerio'; // Usaremos cheerio para parsear el HTML
 import { CalendarEvent } from '../domain/CalendarEvent';
